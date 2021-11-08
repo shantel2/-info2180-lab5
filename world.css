@@ -44,6 +44,7 @@ input{
     width: 60%;
     border-radius: 2em;
     padding-left: 1em;
+    margin-bottom: 3rem;
 }
 
 button{
@@ -54,3 +55,28 @@ button{
     cursor: pointer;
     font-size: 20px;
 }
+
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+
+  th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(odd){background-color: #f2f2f2;}
+
+tr:hover {background-color:#a3ccbd;}
+
+  table{
+      margin: auto;
+      width: 80%;
+      border-collapse: collapse;
+  }
