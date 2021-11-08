@@ -1,11 +1,31 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
+
 $host = 'localhost';
 $username = 'lab5_user';
-$password = '';
+$password = 'password123';
 $dbname = 'world';
 
+//sanitize data funtion
+function sanitize_input($data){
+    $data = trim($data);
+    $data =ucwords($data);
+    $data = stripslashes($data);
+    $data = strip_tags($data);
+    return $data;
+}
+
+$country = $_GET["country"]; 
+$country = sanitize_input($country);
+
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-$stmt = $conn->query("SELECT * FROM countries");
+
+$stmt = $conn->query("SELECT * FROM countries WHERE name LIKE '%$country%'");
+
+/*SELECT * FROM countries WHERE name LIKE '%$country%'; */
 
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
